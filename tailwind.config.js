@@ -11,6 +11,7 @@ export default {
         "dark-red": "#5D1718",
         "dark": "#353535",
         "gray-custom": "#868686",
+        "gray-button": "#F6F6F6",
         
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

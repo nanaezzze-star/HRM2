@@ -7,7 +7,7 @@ import {
 
 import Auth from "./layouts/AuthLayout";
 import Root from "./layouts/RootLayout";
-
+import MainLayout from "./layouts/MainLayout";
 import CourseDetails from "./pages/CourseDetailsPage";
 import Courses from "./pages/CoursesPage";
 import Login from "./pages/LoginPage";
@@ -27,14 +27,20 @@ const loginRoute = createRoute({
   component: Login,
 });
 
-const courseDetailsRoute = createRoute({
+const mainRoute = createRoute({
   getParentRoute: () => rootRoute,
+  id: "main-layout",
+  component: MainLayout,
+});
+
+const courseDetailsRoute = createRoute({
+  getParentRoute: () => mainRoute,
   path: "course/$courseId",
   component: CourseDetails,
 });
 
 const courseRoute = createRoute({
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => mainRoute,
   path: "courses",
   component: Courses,
 });
@@ -51,6 +57,7 @@ const routeTree = rootRoute.addChildren([
   courseRoute,
   courseDetailsRoute,
   authRoute.addChildren([loginRoute]),
+  mainRoute.addChildren([courseRoute, courseDetailsRoute]),
 ]);
 
 export const router = createRouter({ routeTree });
