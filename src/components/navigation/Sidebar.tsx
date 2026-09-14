@@ -20,7 +20,7 @@ export default function Sidebar() {
           className: "border-transparent text-gray-custom hover:bg-gray-50",
         }}
         activeProps={{
-          className: "border-[#C63031] bg-[#FDF2F2] text-[#C63031]",
+          className: "border-red bg-red-bgc text-red",
         }}
       >
         <HierarchyIcon className="w-6 h-6" />
@@ -34,7 +34,7 @@ export default function Sidebar() {
           className: "border-transparent text-gray-custom hover:bg-gray-50",
         }}
         activeProps={{
-          className: "border-[#C63031] bg-[#FDF2F2] text-[#C63031]",
+          className: "border-red bg-red-bgc text-red",
         }}
       >
         <ListIcon className="w-6 h-6" />

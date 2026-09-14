@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Montserrat', 'sans-serif'], 
+        sans: ['Manrope', 'sans-serif'], 
       },
       colors: {
         "red": "#C63031",
@@ -12,6 +12,9 @@ export default {
         "dark": "#353535",
         "gray-custom": "#868686",
         "gray-button": "#F6F6F6",
+        "red-bgc": "#FAEBEB",
+        "gray-bord": "#EBEBEB",
+        "contrast-bord": "#CFCFCF",
         
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
