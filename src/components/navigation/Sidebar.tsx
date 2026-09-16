@@ -27,8 +27,7 @@ export default function Sidebar() {
       </Link>
 
       <Link
-        to="/course/$courseId"
-        params={{ courseId: "1" }}
+        to="/progress"
         className="w-full h-16 flex items-center justify-center border-l-4 transition-colors"
         inactiveProps={{
           className: "border-transparent text-gray-custom hover:bg-gray-50",

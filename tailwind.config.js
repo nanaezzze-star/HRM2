@@ -15,6 +15,7 @@ export default {
         "red-bgc": "#FAEBEB",
         "gray-bord": "#EBEBEB",
         "contrast-bord": "#CFCFCF",
+      
         
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

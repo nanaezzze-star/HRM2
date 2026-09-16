@@ -2,8 +2,8 @@ import { Logo } from "../ui/Logo";
 import { SearchIcon } from "../ui/SearchIcon";
 import { NotificationIcon } from "../ui/NotificationIcon";
 import type { User } from "@/types/user";
+import DownIcon from "../ui/DownIcon";
 export default function Header({ user }: { user?: User | null }) {
-  console.log("Header user data:", user);
   return (
     <header className="w-full h-20 border-b shadow-[0_0_14px_rgba(0,0,0,0.06)] flex flex-row items-center pl-3">
       <Logo className=" flex items-center h-full pr-6 mr-6  py-4 px-2"></Logo>
@@ -19,19 +19,7 @@ export default function Header({ user }: { user?: User | null }) {
         </div>
         <div className="flex flex-row items-center m-6">
           <div>EN</div>
-          <svg
-            className="w-4 h-4 text-gray-700 ml-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2.5"
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
+          <DownIcon />
         </div>
         <div className="flex flex-row items-center w-64 h-12 gap-4 mr-4">
           <NotificationIcon className="text-gray-custom"></NotificationIcon>
@@ -51,19 +39,7 @@ export default function Header({ user }: { user?: User | null }) {
                   {user.position}
                 </span>
               </div>
-              <svg
-                className="w-4 h-4 text-gray-700 ml-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2.5"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
+              <DownIcon />
             </div>
           )}
         </div>

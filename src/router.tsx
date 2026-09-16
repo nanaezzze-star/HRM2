@@ -8,9 +8,10 @@ import {
 import Auth from "./layouts/AuthLayout";
 import Root from "./layouts/RootLayout";
 import MainLayout from "./layouts/MainLayout";
-import CourseDetails from "./pages/CourseDetailsPage";
-import Courses from "./pages/CoursesPage";
+import Progres from "./pages/Progress";
+import Courses from "./pages/Courses";
 import Login from "./pages/LoginPage";
+import Progress from "./pages/Progress";
 
 const rootRoute = createRootRoute({
   component: Root,
@@ -33,10 +34,10 @@ const mainRoute = createRoute({
   component: MainLayout,
 });
 
-const courseDetailsRoute = createRoute({
+const courseProgresRoute = createRoute({
   getParentRoute: () => mainRoute,
-  path: "course/$courseId",
-  component: CourseDetails,
+  path: "progress",
+  component: Progress,
 });
 
 const courseRoute = createRoute({
@@ -55,9 +56,9 @@ const indexRoute = createRoute({
 const routeTree = rootRoute.addChildren([
   indexRoute,
   courseRoute,
-  courseDetailsRoute,
+  courseProgresRoute,
   authRoute.addChildren([loginRoute]),
-  mainRoute.addChildren([courseRoute, courseDetailsRoute]),
+  mainRoute.addChildren([courseRoute, courseProgresRoute]),
 ]);
 
 export const router = createRouter({ routeTree });
