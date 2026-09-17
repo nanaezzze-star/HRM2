@@ -1,7 +1,7 @@
 import { Outlet } from "@tanstack/react-router";
 import Header from "@/components/navigation/Header";
 import Sidebar from "@/components/navigation/Sidebar";
-import { useAuthUser } from "@/hooks/useAuthUser";
+import { useAuthUser } from "@/features/auth";
 
 export default function MainLayout() {
   const {user} = useAuthUser()

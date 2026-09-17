@@ -1,8 +1,8 @@
-import { Logo } from "../ui/Logo";
-import { SearchIcon } from "../ui/SearchIcon";
-import { NotificationIcon } from "../ui/NotificationIcon";
-import type { User } from "@/types/user";
-import DownIcon from "../ui/DownIcon";
+import { Logo } from "@/shared/ui/Logo";
+import { SearchIcon } from "@/shared/ui/SearchIcon";
+import { NotificationIcon } from "@/shared/ui/NotificationIcon";
+import type { User } from "@/features/auth";
+import DownIcon from "@/shared/ui/DownIcon";
 export default function Header({ user }: { user?: User | null }) {
   return (
     <header className="w-full h-20 border-b shadow-[0_0_14px_rgba(0,0,0,0.06)] flex flex-row items-center pl-3">

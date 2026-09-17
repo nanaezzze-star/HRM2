@@ -1,10 +1,10 @@
 import { Link } from "@tanstack/react-router";
-import { UserIcon } from "../ui/UserIcon";
-import { HierarchyIcon } from "../ui/HierarchyIcon";
-import { ListIcon } from "../ui/ListIcon";
-import { ClipboardIcon } from "../ui/ClipboardIcon";
-import { CalendarIcon } from "../ui/CalendarIcon";
-import { SettingsIcon } from "../ui/SettingsIcon";
+import { UserIcon } from "@/shared/ui/UserIcon";
+import { HierarchyIcon } from "@/shared/ui/HierarchyIcon";
+import { ListIcon } from "@/shared/ui/ListIcon";
+import { ClipboardIcon } from "@/shared/ui/ClipboardIcon";
+import { CalendarIcon } from "@/shared/ui/CalendarIcon";
+import { SettingsIcon } from "@/shared/ui/SettingsIcon";
 
 export default function Sidebar() {
   return (
