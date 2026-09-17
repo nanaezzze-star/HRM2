@@ -1,6 +1,9 @@
-import ProgressTableRow from "@/components/progress/ProgressTableRow";
-import { ProgressFilters } from "@/components/progress/ProgressFilter";
-import { useProgress } from "@/hooks/useProgress";
+import {
+  useProgress,
+  ProgressTableRow,
+  ProgressFilters,
+} from "@/features/progress";
+import { Pagination } from "@/shared/ui/Pagination";
 
 export default function Progress() {
   const {
@@ -13,17 +16,26 @@ export default function Progress() {
     positions,
     handleReset,
     totalCount,
+    currentPage,
+    setCurrentPage,
+    totalPages,
+    pageSize,
+    setPageSize,
+    pages,
+    canGoNext,
+    canGoPrev,
+    handleApply,
   } = useProgress();
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-button p-6 flex justify-center items-center text-sm text-gray-400">
+      <div className="min-h-screen bg-gray-button p-6 pb-0 flex justify-center items-center text-sm text-gray-400">
         Loading...
       </div>
     );
   }
   return (
-    <div className="min-h-screen bg-gray-button p-6 ">
-      <main className="bg-white min-h-screen rounded-2xl border border-gray-bord">
+    <div className="min-h-screen bg-gray-button p-6 pb-0 ">
+      <main className="bg-white min-h-screen rounded-2xl border border-gray-bord flex flex-col ">
         <ProgressFilters
           searchQuery={searchQuery}
           onSearchChange={setSearchQuery}
@@ -31,7 +43,7 @@ export default function Progress() {
           onPositionChange={setSelectedPosition}
           positions={positions}
           onReset={handleReset}
-          onApply={() => {}}
+          onApply={handleApply}
           totalCount={totalCount}
         />
 
@@ -54,6 +66,18 @@ export default function Progress() {
               No employees found
             </div>
           )}
+        </div>
+        <div className="sticky bottom-0 z-10 flex h-11 w-full items-center">
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            pageSize={pageSize}
+            pages={pages}
+            onPageChange={setCurrentPage}
+            onPageSizeChange={setPageSize}
+            canGoNext={canGoNext}
+            canGoPrev={canGoPrev}
+          />
         </div>
       </main>
     </div>

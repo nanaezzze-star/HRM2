@@ -1,15 +1,15 @@
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
-import { authService } from "@/lib/authService";
-import { BookIcon } from "@/components/ui/BookIcon";
-import { BrainIcon } from "@/components/ui/BrainIcon";
-import { ChartIcon } from "@/components/ui/ChartIcon";
-import { DotsLeft } from "@/components/ui/DotsLeft";
-import { DotsRight } from "@/components/ui/DotsRight";
-import { UsersIcon } from "@/components/ui/UsersIcon";
-import { Button } from "@/components/ui/Button";
-import { GoogleIcon } from "@/components/ui/GoogleIcon";
-import { Logo } from "@/components/ui/Logo";
+import { authService } from "@/features/auth";
+import { BookIcon } from "@/shared/ui/BookIcon";
+import { BrainIcon } from "@/shared/ui/BrainIcon";
+import { ChartIcon } from "@/shared/ui/ChartIcon";
+import { DotsLeft } from "@/shared/ui/DotsLeft";
+import { DotsRight } from "@/shared/ui/DotsRight";
+import { UsersIcon } from "@/shared/ui/UsersIcon";
+import { Button } from "@/shared/ui/Button";
+import { GoogleIcon } from "@/shared/ui/GoogleIcon";
+import { Logo } from "@/shared/ui/Logo";
 
 export default function Login() {
   const navigate = useNavigate();
