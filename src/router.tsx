@@ -11,6 +11,7 @@ import Root from "./layouts/RootLayout";
 import MainLayout from "./layouts/MainLayout";
 import Progress from "./pages/Progress";
 import Courses from "./pages/Courses";
+import Classroom from "./pages/Classroom";
 import { LoginPage } from "./features/auth";
 
 const getUser = () => {
@@ -78,6 +79,11 @@ const courseRoute = createRoute({
   component: Courses,
 });
 
+const classroomRoute = createRoute({
+  getParentRoute: () => mainRoute,
+  path: "classroom",
+  component: Classroom,
+});
 
 const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
@@ -90,7 +96,7 @@ const indexRoute = createRoute({
 const routeTree = rootRoute.addChildren([
   indexRoute,
   authRoute.addChildren([loginRoute]),
-  mainRoute.addChildren([courseRoute, courseProgresRoute]),
+  mainRoute.addChildren([courseRoute, courseProgresRoute, classroomRoute]),
 ]);
 
 export const router = createRouter({ routeTree });
