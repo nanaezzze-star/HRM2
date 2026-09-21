@@ -10,8 +10,8 @@ import {
   where,
   setDoc,
 } from "firebase/firestore";
-import { db } from "./firebase";
-import type { User } from "@/types/user";
+import { db } from "@/config/firebase";
+import type { User } from "../types/user";
 
 const usersCollection = collection(db, "users");
 
@@ -59,7 +59,7 @@ export const userService = {
     })) as User[];
   },
   setUserWithId: async (id: string, userData: User): Promise<void> => {
-  const userDocRef = doc(db, "users", id);
-  await setDoc(userDocRef, userData, { merge: true }); 
-},
+    const userDocRef = doc(db, "users", id);
+    await setDoc(userDocRef, userData, { merge: true });
+  },
 };

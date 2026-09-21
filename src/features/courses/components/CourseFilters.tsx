@@ -1,4 +1,4 @@
-import { SearchIcon } from "../ui/SearchIcon";
+import { SearchIcon } from "@/components/ui/SearchIcon";
 interface CourseFilterProps {
   searchQuery: string;
   onSearchChange: (value: string) => void;

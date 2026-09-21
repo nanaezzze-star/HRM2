@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import type { Course } from "@/types/course";
-import { courseService } from "@/lib/courseService";
+import type { Course } from "../types/course";
+import { courseService } from "../services/courseService";
 
 export type contentCourses = "Lecture" | "Quiz" | "Course";
 export function useCourses() {
@@ -29,24 +29,24 @@ export function useCourses() {
   }, [activeTab]);
 
   const authors = Array.from(
-  new Set(courses.map((c) => c.authorName).filter(Boolean))//unique list of authors
-);
+    new Set(courses.map((c) => c.authorName).filter(Boolean)), //unique list of authors
+  );
 
-const filteredCourses = courses.filter((course)=>{
-  const search = course.name 
-  .toLowerCase()
-  .includes(searchQuery.toLowerCase())
-  const matchAuthors = selectedAuth
-  ? course.authorName === selectedAuth
-   :true
+  const filteredCourses = courses.filter((course) => {
+    const search = course.name
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
+    const matchAuthors = selectedAuth
+      ? course.authorName === selectedAuth
+      : true;
 
-   return search && matchAuthors
-})
-const handleReset = () =>{
-  setSearchQuery("");
-  setSelectedAuth("")
-}
-return {
+    return search && matchAuthors;
+  });
+  const handleReset = () => {
+    setSearchQuery("");
+    setSelectedAuth("");
+  };
+  return {
     activeTab,
     setActiveTab,
     searchQuery,
@@ -58,6 +58,4 @@ return {
     loading,
     handleReset,
   };
-} 
-
-
+}

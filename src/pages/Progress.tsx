@@ -1,6 +1,8 @@
-import ProgressTableRow from "@/components/progress/ProgressTableRow";
-import { ProgressFilters } from "@/components/progress/ProgressFilter";
-import { useProgress } from "@/hooks/useProgress";
+import {
+  ProgressTableRow,
+  ProgressFilters,
+  useProgress,
+} from "@/features/progress";
 
 export default function Progress() {
   const {

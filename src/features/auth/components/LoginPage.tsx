@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
-import { authService } from "@/lib/authService";
+import { authService } from "../services/authService";
 import { BookIcon } from "@/components/ui/BookIcon";
 import { BrainIcon } from "@/components/ui/BrainIcon";
 import { ChartIcon } from "@/components/ui/ChartIcon";

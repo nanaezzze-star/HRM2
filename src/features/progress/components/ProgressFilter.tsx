@@ -1,4 +1,4 @@
-import { SearchIcon } from "../ui/SearchIcon";
+import { SearchIcon } from "@/components/ui/SearchIcon";
 
 interface EmployeeFiltersProps {
   searchQuery: string;

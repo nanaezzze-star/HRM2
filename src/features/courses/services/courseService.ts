@@ -9,8 +9,8 @@ import {
   query,
   where,
 } from "firebase/firestore";
-import { db } from "./firebase";
-import type { Course } from "@/types/course";
+import { db } from "@/config/firebase";
+import type { Course } from "../types/course";
 
 const courseCollection = collection(db, "course");
 export const courseService = {

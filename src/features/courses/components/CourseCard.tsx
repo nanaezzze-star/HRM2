@@ -1,6 +1,6 @@
-import type { Course } from "@/types/course";
-import { EyeIcon } from "../ui/EyeIcon";
-import { AvatarGroup } from "../ui/AvatarGroup";
+import type { Course } from "../types/course";
+import { EyeIcon } from "@/components/ui/EyeIcon";
+import { AvatarGroup } from "@/components/ui/AvatarGroup";
 
 interface CourseCardProps {
   course: Course;

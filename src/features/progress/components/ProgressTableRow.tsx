@@ -1,8 +1,8 @@
 import { useState } from "react";
-import type { Employees } from "@/hooks/useProgress";
-import DownIcon from "../ui/DownIcon";
+import type { Employees } from "../hooks/useProgress";
+import DownIcon from "@/components/ui/DownIcon";
+import CourseIcon from "@/components/ui/CourseIcon";
 import { formatDate, formatTime } from "@/utils/formatter";
-import CourseIcon from "../ui/CourseIcon";
 interface TableRowProps {
   employee: Employees;
 }

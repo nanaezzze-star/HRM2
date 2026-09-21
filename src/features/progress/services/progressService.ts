@@ -7,8 +7,8 @@ import {
   query,
   where,
 } from "firebase/firestore";
-import { db } from "./firebase";
-import type { Progress } from "@/types/progress";
+import { db } from "@/config/firebase";
+import type { Progress } from "../types/progress";
 
 const progressCollection = collection(db, "progress");
 export const progressService = {
@@ -37,9 +37,7 @@ export const progressService = {
     })) as Progress[];
   },
 
-  addProgress: async (
-    progresData: Omit<Progress, "id">,
-  ): Promise<string> => {
+  addProgress: async (progresData: Omit<Progress, "id">): Promise<string> => {
     const addDocRef = await addDoc(progressCollection, progresData); //add progress to DB
     return addDocRef.id;
   },

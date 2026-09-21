@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
-import { progressService } from "@/lib/progressService";
-import type { Progress } from "@/types/progress";
-import { courseService } from "@/lib/courseService";
+import { progressService } from "../services/progressService";
+import type { Progress } from "../types/progress";
+import { courseService } from "@/features/courses";
 
 export interface Employees {
   userId: string;
@@ -13,18 +13,24 @@ export interface Employees {
 }
 
 export function useProgress() {
-  const [progress, setProgress] = useState<(Progress & { courseName?: string })[]>([]);
+  const [progress, setProgress] = useState<
+    (Progress & { courseName?: string })[]
+  >([]);
   const [loading, setLoading] = useState<boolean>(true);
+  //serchfiliter state
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedPosition, setSelectedPosition] = useState<string>("");
 
   useEffect(() => {
+    //fetch progress and courses list
     Promise.all([
       progressService.getAllProgresses(),
       courseService.getAllCourses(),
     ])
       .then(([progressData, coursesData]) => {
+        //create map id:name
         const courseMap = new Map(coursesData.map((c) => [c.id, c.name]));
+        //add course name
 
         const enrichedProgress = progressData.map((item) => ({
           ...item,
@@ -34,7 +40,7 @@ export function useProgress() {
         setProgress(enrichedProgress);
       })
       .catch((error) => console.error(error))
-      .finally(() => setLoading(false));
+      .finally(() => setLoading(false)); //turn off loading
   }, []);
 
   const rawEmployees = useMemo(() => {
@@ -64,9 +70,11 @@ export function useProgress() {
   }, [rawEmployees]);
 
   const employees = useMemo(() => {
+    //filiter employee
     return rawEmployees.filter((employee) => {
       const fullName =
         `${employee.userFirstName} ${employee.userLastName}`.toLowerCase();
+
       const matchesSearch = fullName.includes(searchQuery.toLowerCase());
       const matchesPosition = selectedPosition
         ? employee.userPosition === selectedPosition

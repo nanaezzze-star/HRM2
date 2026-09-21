@@ -1,7 +1,9 @@
-import { useCourses } from "@/hooks/useCourses";
-import { CourseCard } from "@/components/courses/CourseCard";
-import { ContentTabs } from "@/components/courses/ContentTabs";
-import { CourseFilters } from "@/components/courses/CourseFilters";
+import {
+  useCourses,
+  CourseCard,
+  ContentTabs,
+  CourseFilters,
+} from "@/features/courses";
 
 
 export default function Courses() {

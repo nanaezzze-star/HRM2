@@ -5,9 +5,9 @@ import {
   onAuthStateChanged,
   type User as FirebaseUser,
 } from "firebase/auth";
-import { auth } from "./firebase";
+import { auth } from "@/config/firebase";
 import { userService } from "./userService";
-import type { User } from "@/types/user";
+import type { User } from "../types/user";
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -20,6 +20,7 @@ export const authService = {
       let existingUser = await userService.getUserById(fbUser.uid);
 
       if (!existingUser) {
+        //if is the first login - create new user
         const newUser: User = {
           id: fbUser.uid,
           firstName: fbUser.displayName?.split(" ")[0] || "User",
@@ -45,6 +46,7 @@ export const authService = {
   },
 
   onAuthChange: (callback: (user: FirebaseUser | null) => void) => {
+    // auth state listener (returns cleanup function)
     return onAuthStateChanged(auth, callback);
   },
 };
