@@ -1,4 +1,7 @@
 import { SearchIcon } from "@/components/ui/SearchIcon";
+import ExportIcon from "@/components/ui/ExportIcon";
+import { GrayDropdownIcon } from "@/components/ui/GrayDropdownIcon";
+
 
 interface EmployeeFiltersProps {
   searchQuery: string;
@@ -43,18 +46,7 @@ export function ProgressFilters({
           onClick={onExport}
           className="flex items-center gap-2 text-sm font-medium text-red hover:opacity-80 transition-opacity"
         >
-          <svg
-            className="w-4 h-4 stroke-current"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="2"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
-            />
-          </svg>
+          <ExportIcon />
           Export
         </button>
       </div>
@@ -77,13 +69,7 @@ export function ProgressFilters({
           </select>
 
           <span className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
-            <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20">
-              <path
-                fillRule="evenodd"
-                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                clipRule="evenodd"
-              />
-            </svg>
+            <GrayDropdownIcon />
           </span>
         </div>
 
