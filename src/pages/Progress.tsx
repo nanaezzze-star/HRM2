@@ -3,6 +3,8 @@ import {
   ProgressFilters,
   useProgress,
 } from "@/features/progress";
+import { usePagination } from "@/hooks/usePagination";
+import { Pagination } from "@/components/ui/Pagination";
 
 export default function Progress() {
   const {
@@ -16,6 +18,22 @@ export default function Progress() {
     handleReset,
     totalCount,
   } = useProgress();
+
+  const {
+    paginatedData,
+    currentPage,
+    totalPages,
+    pageSize,
+    pages,
+    canGoPrev,
+    canGoNext,
+    handlePageChange,
+    handlePageSizeChange,
+  } = usePagination({
+    data: employees,
+    initialPageSize: 10,
+  });
+
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-button p-6 flex justify-center items-center text-sm text-gray-400">
@@ -46,9 +64,9 @@ export default function Progress() {
           <div className="col-span-1">Grade</div>
         </div>
 
-        <div>
-          {employees.length > 0 ? (
-            employees.map((employee) => (
+        <div className="flex-1">
+          {paginatedData.length > 0 ? (
+            paginatedData.map((employee) => (
               <ProgressTableRow key={employee.userId} employee={employee} />
             ))
           ) : (
@@ -57,6 +75,19 @@ export default function Progress() {
             </div>
           )}
         </div>
+
+        {employees.length > 0 && (
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            pageSize={pageSize}
+            pages={pages}
+            onPageChange={handlePageChange}
+            onPageSizeChange={handlePageSizeChange}
+            canGoNext={canGoNext}
+            canGoPrev={canGoPrev}
+          />
+        )}
       </main>
     </div>
   );
