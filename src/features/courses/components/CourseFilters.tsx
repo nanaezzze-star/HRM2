@@ -19,8 +19,8 @@ export function CourseFilters({
   authors = [],
 }: CourseFilterProps) {
   return (
-    <div className="w-screen h-28 p-8">
-      <div className="relative flex items-center w-72">
+    <div className="w-full p-4 md:p-8">
+      <div className="relative flex items-center w-full md:w-72">
         <SearchIcon className="absolute left-4 w-[17px] h-[17px] text-gray-custom pointer-events-none" />
         <input
           value={searchQuery}
@@ -31,12 +31,12 @@ export function CourseFilters({
         />
       </div>
 
-      <div className="flex items-center gap-8 pt-6">
-        <div className="relative">
+      <div className="flex flex-wrap items-center gap-3 md:gap-8 pt-4 md:pt-6">
+        <div className="relative w-full md:w-56">
           <select
             value={selectedAuthor}
             onChange={(e) => onAuthorChange(e.target.value)}
-            className="appearance-none bg-white text-sm text-gray-custom border border-gray-bord rounded-lg pl-4 pr-10 py-2 outline-none cursor-pointer hover:border-gray-300  w-56"
+            className="appearance-none bg-white text-sm text-gray-custom border border-gray-bord rounded-lg pl-4 pr-10 py-2 outline-none cursor-pointer hover:border-gray-300 w-full"
           >
             <option value="">Author: All</option>
             {authors.map((author) => (
@@ -68,7 +68,8 @@ export function CourseFilters({
         <button
           type="button"
           onClick={onApply}
-          className="bg-red text-white text-sm font-medium px-8 py-2 rounded-lg transition-colors w-28"
+          className="bg-red text-white text-sm font-medium 
+          px-6 md:px-8 py-2 rounded-lg transition-colors w-full md:w-28"
         >
           Apply
         </button>

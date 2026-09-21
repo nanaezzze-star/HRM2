@@ -8,7 +8,7 @@ import { usePagination } from "@/hooks/usePagination";
 import { Pagination } from "@/components/ui/Pagination";
 
 export default function Courses() {
-const {
+  const {
     activeTab,
     setActiveTab,
     searchQuery,

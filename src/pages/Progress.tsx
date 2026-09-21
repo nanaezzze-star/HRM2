@@ -41,9 +41,10 @@ export default function Progress() {
       </div>
     );
   }
+
   return (
-    <div className="min-h-screen bg-gray-button p-6 ">
-      <main className="bg-white min-h-screen rounded-2xl border border-gray-bord">
+    <div className="min-h-screen bg-gray-button p-3 md:p-6">
+      <main className="bg-white rounded-2xl border border-gray-bord flex flex-col">
         <ProgressFilters
           searchQuery={searchQuery}
           onSearchChange={setSearchQuery}
@@ -55,7 +56,10 @@ export default function Progress() {
           totalCount={totalCount}
         />
 
-        <div className="grid grid-cols-12 items-center px-6 py-3 bg-gray-button border-b border-gray-bord text-xs font-semibold text-gray-custom">
+        <div
+          className="hidden md:grid grid-cols-12 items-center px-6 py-3 
+        bg-gray-button border-b border-gray-bord text-xs font-semibold text-gray-custom"
+        >
           <div className="col-span-2">User</div>
           <div className="col-span-2">Job title</div>
           <div className="col-span-2">Educational material</div>
