@@ -1,7 +1,7 @@
 import { SearchIcon } from "@/components/ui/SearchIcon";
 import ExportIcon from "@/components/ui/ExportIcon";
 import { GrayDropdownIcon } from "@/components/ui/GrayDropdownIcon";
-
+import { escapeHTML } from "@/utils/sanitize";
 
 interface EmployeeFiltersProps {
   searchQuery: string;
@@ -33,7 +33,7 @@ export function ProgressFilters({
           <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
           <input
             value={searchQuery}
-            onChange={(e) => onSearchChange(e.target.value)}
+            onChange={(e) => onSearchChange(escapeHTML(e.target.value))}
             type="text"
             placeholder="Surname, First Name"
             className="w-full h-10 bg-gray-50 text-sm text-dark placeholder:text-gray-400 

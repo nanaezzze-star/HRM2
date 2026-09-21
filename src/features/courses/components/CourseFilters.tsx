@@ -1,6 +1,6 @@
 import { SearchIcon } from "@/components/ui/SearchIcon";
 import { GrayDropdownIcon } from "@/components/ui/GrayDropdownIcon";
-
+import { escapeHTML } from "@/utils/sanitize";
 interface CourseFilterProps {
   searchQuery: string;
   onSearchChange: (value: string) => void;
@@ -26,7 +26,7 @@ export function CourseFilters({
         <SearchIcon className="absolute left-4 w-[17px] h-[17px] text-gray-custom pointer-events-none" />
         <input
           value={searchQuery}
-          onChange={(e) => onSearchChange(e.target.value)}
+          onChange={(e) => onSearchChange(escapeHTML(e.target.value))}
           type="text"
           placeholder="Course name"
           className="w-full h-12 bg-gray-button text-gray-custom placeholder:text-gray-custom pl-11 pr-4 rounded-lg outline-none"
